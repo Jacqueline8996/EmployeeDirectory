@@ -1,16 +1,8 @@
-import './App.css';
-import Header from './components/Header';
-import Table from './components/Table/Table';
-import EmployeeDirect from './component/page/EmployeeDirect'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import "./index.js";
+import "./index.css"
+import "bootstrap/dist/css/bootstrap.min.css";
 
-function App() {
-
-
-  return (
-    <div className="App">
-      <EmployeeDirect/>
-    </div>
-  );
-}
-
-export default App;
+ReactDOM.render(<App />, document.getElementById('root'));
