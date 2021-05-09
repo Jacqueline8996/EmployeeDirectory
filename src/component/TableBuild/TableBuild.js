@@ -66,33 +66,32 @@ class TableBuild extends Component {
                         <Table>
                             <TableHeader/>
                             {
-                                this.state.filteredEmployees[0] ?
+                            this.state.filteredEmployees[0] ?
 
-                                    this.state.filteredEmployees.map((person,index) => (
-                                        <TableRow
-                                            key={index}
-                                            src={person.src}
-                                            first={person.first}
-                                            last={person.last}
-                                            age={person.age}
-                                            phone={person.phone}
-                                            email={person.email}
-                                        />
-                                    ))
-                                    :
-                                    this.state.employees.map((person,index) => (
-                                        <TableRow
-                                            key={index}
-                                            src={person.src}
-                                            first={person.first}
-                                            last={person.last}
-                                            age={person.age}
-                                            phone={person.phone}
-                                            email={person.email}
-                                        />
-                                    ))
+                                this.state.filteredEmployees.map((person,index) => (
+                                    <TableRow
+                                        key={index}
+                                        src={person.src}
+                                        first={person.first}
+                                        last={person.last}
+                                        age={person.age}
+                                        phone={person.phone}
+                                        email={person.email}
+                                    />
+                                ))
+                                :
+                                this.state.employees.map((person,index) => (
+                                    <TableRow
+                                        key={index}
+                                        src={person.src}
+                                        first={person.first}
+                                        last={person.last}
+                                        age={person.age}
+                                        phone={person.phone}
+                                        email={person.email}
+                                    />
+                                ))
                             }
-                        
                         </Table>
                     </div>
                 </body>
