@@ -34,7 +34,6 @@ class TableBuild extends Component {
             });
             // Once we have the data --> Update our STATE 
             this.setState({ employees: mapEmployees });
-            this.setState({ index: +1});
             this.setState({ ...this.state, filteredEmployees: this.state.employees })
         })
             .catch(err => {
@@ -83,7 +82,7 @@ class TableBuild extends Component {
                                     :
                                     this.state.employees.map((person,index) => (
                                         <TableRow
-                                            key={person.firs}
+                                            key={index}
                                             src={person.src}
                                             first={person.first}
                                             last={person.last}
