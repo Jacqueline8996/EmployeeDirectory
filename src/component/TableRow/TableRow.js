@@ -1,24 +1,21 @@
-import{ Component } from 'react';
+import React from 'react';
 // import Table from 'react-bootstrap/Table'
 
 
-class TableRow extends Component {
-   
-    render(){
-        return(
-          <tbody>
-            <td>ghost</td>
-            <td>ghostName </td>
-            <td>ghostlastName</td>
-            <td>150</td>
-            <td>12345</td>
-            <td>12345@ghost6.com</td>
-           </tbody>
-                
-        )
-    }
-
-    
+function TableRow({ src, first, last, age, phone, email }) {
+    return(
+      <tbody>
+          <tr>
+          <td><img src={src} alt={`${first} ${last} picture`} className="profilePic"></img></td>
+          <td>{first}</td>
+          <td>{last}</td>
+          <td>{age}</td>
+          <td>{phone}</td>
+          <td>{email}</td>
+          </tr>
+      </tbody>
+            
+    )    
 };
   
 export default TableRow;

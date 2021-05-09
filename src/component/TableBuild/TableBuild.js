@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-// import API from "../../utils/API.js";
+import API from "../../utils/API.js";
 import Table from 'react-bootstrap/Table';
 // import HeaderBar from "../HeaderBar/HeaderBar";
-
 import TableHeader from "../TableHeader/TableHeader";
 import TableRow from "../TableRow/TableRow";
+
+
 class TableBuild extends Component {
     state = {
         employees: [],
@@ -12,87 +13,90 @@ class TableBuild extends Component {
         search: "",
     }
 
-    // componentDidMount() {
-    //   // Make A Request for that Data (from the API)
-    //   API.getEmployees().then((res) => {
-    //     console.log(res);
-    //     const mapEmployees = res.data.results.map((person) => {
-    //         return {
-    //             id: person.id.value,
-    //             src: person.picture.thumbnail,
-    //             first: person.name.first,
-    //             last:person.name.last,
-    //             age: person.dob.age,
-    //             phone: person.phone,
-    //             email:person.email
-    //         }
-    //     });
-//         // Once we have the data --> Update our STATE 
-//         this.setState({ employees: mapEmployees });
-//         this.setState({ ...this.state, filteredEmployees: this.state.employees })
-//     })
-//       .catch(err => {
-//           console.log(err);
-//       })
-//   }
+   
+    componentDidMount() {
+        // Make A Request for that Data (from the API)
+        API.getEmployee().then((res) => {
+            console.log(res);
+            const mapEmployees = res.data.results.map((emp) => {
+                return {
+                    id: emp.id.value,
+                    src: emp.picture.thumbnail,
+                    first: emp.name.first,
+                    last: emp.name.last,
+                    age: emp.dob.age,
+                    phone: emp.phone,
+                    email: emp.email
+                }
+            });
+            // Once we have the data --> Update our STATE 
+            this.setState({ employees: mapEmployees });
+            this.setState({ ...this.state, filteredEmployees: this.state.employees })
+        })
+            .catch(err => {
+                console.log(err);
+            })
 
-//   filterList = e => {
-//     const filterTarget = e.target.value;
-//     let employeeList = this.state.employees;
-//     employeeList = employeeList.filter(i => {
-//         let values = Object.values(i)
-//             .join("")
-//             .toLocaleLowerCase();
-//         return values.indexOf(filterTarget.toLowerCase()) !== -1;
-//     })
-//     this.setState({ filteredEmployees: employeeList });
-//     }
-    render(){
-        return(
-            <div>
-            
-            <Table responsive>
-            <TableHeader/>
-                <TableRow>
-                    <td>ghost</td>
-                    <td>ghostName </td>
-                    <td>ghostlastName</td>
-                    <td>150</td>
-                    <td>12345</td>
-                    <td>12345@ghost6.com</td>
-                </TableRow>
-              
-            {/* {       
-            this.state.filteredEmployees[0] ?
-
-                this.state.filteredEmployees.map(person => (
-                    <tr>
-                        <td><img src={person.pic} className="thumbnail" alt="thumbnail" /></td>
-                        <td>{person.first}</td>
-                        <td>{person.last}</td>
-                        <td>{person.age}</td>
-                        <td>{person.phone}</td>
-                        <td>{person.email}</td>
-                    </tr>
-                ))
-                :
-                this.state.employees.map([person] => (
-                    <tr>
-                        <td><img src={person.pic} className="thumbnail" alt="thumbnail" /></td>
-                        <td>{person.first}</td>
-                        <td>{person.last}</td>
-                        <td>{person.age}</td>
-                        <td>{person.phone}</td>
-                        <td>{person.email}</td>
-                    </tr>
-                ))
-            } */}
-            </Table>
-        </div>
-        )
     }
 
-    
-};
+
+    filterList = e => {
+        const filterTarget = e.target.value;
+        let employeeList = this.state.employees;
+        employeeList = employeeList.filter(i => {
+            let values = Object.values(i)
+                .join("")
+                .toLocaleLowerCase();
+            return values.indexOf(filterTarget.toLowerCase()) !== -1;
+        })
+        this.setState({ filteredEmployees: employeeList });
+    }
+
+    render() {
+        return (
+            <div className="filter-list">
+                <input className="search" type="text" placeholder='Search directory for Employee' onChange={this.filterList} />
+                <body>
+                    <h1></h1>
+                    <div className="employee-list">
+                        <Table>
+                            <TableHeader/>
+                            {
+                                this.state.filteredEmployees[0] ?
+
+                                    this.state.filteredEmployees.map(person => (
+                                        <TableRow
+                                            key={person.firs}
+                                            src={person.src}
+                                            first={person.first}
+                                            last={person.last}
+                                            age={person.age}
+                                            phone={person.phone}
+                                            email={person.email}
+                                        />
+                                    ))
+                                    :
+                                    this.state.employees.map(person => (
+                                        <TableRow
+                                            key={person.firs}
+                                            src={person.src}
+                                            first={person.first}
+                                            last={person.last}
+                                            age={person.age}
+                                            phone={person.phone}
+                                            email={person.email}
+                                        />
+                                    ))
+                            }
+                           
+                        </Table>
+                    </div>
+                </body>
+            </div>
+        )
+    }
+}
+
+
   
 export default TableBuild;

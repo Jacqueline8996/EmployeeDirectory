@@ -16,7 +16,6 @@ class TableHeader extends Component {
                 <th>Email </th>
               </tr>
             </thead>
-                
         )
     }
 
