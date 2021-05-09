@@ -11,11 +11,14 @@ class TableBuild extends Component {
         employees: [],
         filteredEmployees: [],
         search: "",
+        index: 0,
     }
 
    
     componentDidMount() {
+        
         // Make A Request for that Data (from the API)
+        
         API.getEmployee().then((res) => {
             console.log(res);
             const mapEmployees = res.data.results.map((emp) => {
@@ -26,16 +29,18 @@ class TableBuild extends Component {
                     last: emp.name.last,
                     age: emp.dob.age,
                     phone: emp.phone,
-                    email: emp.email
+                    email: emp.email,
                 }
             });
             // Once we have the data --> Update our STATE 
             this.setState({ employees: mapEmployees });
+            this.setState({ index: +1});
             this.setState({ ...this.state, filteredEmployees: this.state.employees })
         })
             .catch(err => {
                 console.log(err);
             })
+    
 
     }
 
@@ -64,9 +69,9 @@ class TableBuild extends Component {
                             {
                                 this.state.filteredEmployees[0] ?
 
-                                    this.state.filteredEmployees.map(person => (
+                                    this.state.filteredEmployees.map((person,index) => (
                                         <TableRow
-                                            key={person.firs}
+                                            key={index}
                                             src={person.src}
                                             first={person.first}
                                             last={person.last}
@@ -76,7 +81,7 @@ class TableBuild extends Component {
                                         />
                                     ))
                                     :
-                                    this.state.employees.map(person => (
+                                    this.state.employees.map((person,index) => (
                                         <TableRow
                                             key={person.firs}
                                             src={person.src}
@@ -88,7 +93,7 @@ class TableBuild extends Component {
                                         />
                                     ))
                             }
-                           
+                        
                         </Table>
                     </div>
                 </body>
