@@ -4,9 +4,7 @@ import EmployeeDirect from './page/EmployeeDirect.js';
 
 function App() {
   return (
-    <div className="App">
-      <EmployeeDirect/>
-    </div>
+    <div className="App"><EmployeeDirect/></div>
   );
 }
 
