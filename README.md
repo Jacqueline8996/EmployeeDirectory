@@ -12,13 +12,14 @@
 * [ContactInformation](#ContactInformation)
 
 # ProjectDescription
-* A directury that use an api to get employees. Then you are able  to search for that employee.This app was made using react
+* A directury that use an api to get employees. Then you are able to search for that employee using there name a list of similar employee will be displayed.This app was made using react
   
 
 # ProjectInstallationInstructions
   There is no installation required for this page, all files can be viewed at the following link:
 * GitHUB Repo : https://github.com/Jacqueline8996/EmployeeDirectory.git
 * Live Link: https://jacqueline8996.github.io/EmployeeDirectory/
+* heroku : https://secure-plateau-23863.herokuapp.com/
 
 # ProjectUsage
 * Click on the link to view Employee Directory
