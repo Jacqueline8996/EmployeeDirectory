@@ -1,5 +1,5 @@
 import './App.css';
-import EmployeeDirect from './component/page/EmployeeDirect';
+import EmployeeDirect from './page/EmployeeDirect.js';
 
 
 function App() {
