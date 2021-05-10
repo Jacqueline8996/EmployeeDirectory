@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import API from "../../utils/API.js";
 import Table from 'react-bootstrap/Table';
-// import HeaderBar from "../HeaderBar/HeaderBar";
 import TableHeader from "../TableHeader/TableHeader";
 import TableRow from "../TableRow/TableRow";
+import "./TableBuild.css"
 
 
 class TableBuild extends Component {
@@ -58,8 +58,8 @@ class TableBuild extends Component {
 
     render() {
         return (
-            <div className="filter-list">
-                <input className="search" type="text" placeholder='Search directory for Employee' onChange={this.filterList} />
+            <div className="row justify-content-md-center filter-list">
+                <input className="searchBar col-4" type="text" placeholder='Search directory for Employee' onChange={this.filterList} />
                 <body>
                     <h1></h1>
                     <div className="employee-list">

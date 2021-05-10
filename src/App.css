@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+body{
+  background-color: rgb(154, 225, 225);
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+}

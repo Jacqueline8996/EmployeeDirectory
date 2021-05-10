@@ -1,10 +1,8 @@
 import './App.css';
-import EmployeeDirect from './component/page/EmployeeDirect'
+import EmployeeDirect from './component/page/EmployeeDirect';
 
 
 function App() {
-
-
   return (
     <div className="App">
       <EmployeeDirect/>

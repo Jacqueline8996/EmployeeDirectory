@@ -1,5 +1,5 @@
 import{ Component } from 'react';
-// import Table from 'react-bootstrap/Table'
+import "./TableHeader.css"
 
 
 class TableHeader extends Component {

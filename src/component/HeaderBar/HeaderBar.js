@@ -1,22 +1,14 @@
 import{ Component } from 'react';
-// import Table from 'react-bootstrap/Table'
+import Logo from "./Logo.png"
 
 
 class HeaderBar extends Component {
    
     render(){
         return(
-            <thead>
-              <tr>
-                <th>Profile Picture</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Age</th>
-                <th>Phone #</th>
-                <th>Email </th>
-              </tr>
-            </thead>
-                
+          <div className="row justify-content-md-center">
+            <img src={Logo} className="logoImage col-md-12 p-3" alt="logo"/>
+          </div>
         )
     }
 
